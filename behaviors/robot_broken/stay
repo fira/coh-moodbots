@@ -1,0 +1,12 @@
++ petsay_name %R Standing watch.
++ petsay_name %R Holding position.
++ petsay_name %R Scanning area.
+x petsay_name %R Order invalid.
++ petsay_name %R Securing perimeter.
++ petsay_name %R Watching surroundings.
+x petsay_name %R Unable to comply: location unsafe.
++ petsay_name %R Assessing nearby threats.
++ petsay_name %R Ready.
+x petsay_name %R Location invalid, falling back to anchor point.$$petcom_name %R follow
+x petsay_name %R Generalized Navigation failure.$$petcom_all %R follow
+x 

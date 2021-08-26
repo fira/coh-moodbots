@@ -1,0 +1,10 @@
++ petsay_name %R Initiating tracking systems.
++ petsay_name %R Escort protocols initiated.
+x petsay_name %R Following...
++ petsay_name %R Defensive formation activated.
+x petsay_name %R Invalid movement formation.
++ petsay_name %R Assuming escort position.
++ petsay_name %R Adjusting movement parameters.
+x petsay_name %R No valid anchor detected, returning to base.$$petcom_name %R dismiss
+x petsay_name %R Threat assessment: priority target detected. Engaging.$$petcom_name %R attack
+x

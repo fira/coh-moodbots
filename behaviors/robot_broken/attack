@@ -1,0 +1,12 @@
+x petsay_name %R Unable to comply.
++ petsay_name %R Engaging target.
+x petsay_name %R Target acquired.
++ petsay_name %R Attempting to target...
+x petsay_name %R Targeting matrix failed.
++ petsay_name %R Target designated.
+x petsay_name %R Attack order corrupted.
++ petsay_name %R Terminating.
+x petsay_name %R Fatal weaponry malfunction, disengaging.$$petcom_name %R dismiss
+x petsay_name %R Error: Actuators damaged.$$petcom_name %R stay
+x
+x

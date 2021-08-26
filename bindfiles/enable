@@ -1,0 +1,5 @@
+ADD "petsay_all Disabling Mood Protocol...$$bindloadfilesilent moodbots\disable"
+F "petcom_all attack$$bindloadfilesilent moodbots\000000"
+G "petcom_all goto$$bindloadfilesilent moodbots\000000"
+H "petcom_all stay$$bindloadfilesilent moodbots\000000"
+V "petcom_all follow$$bindloadfilesilent moodbots\000000"

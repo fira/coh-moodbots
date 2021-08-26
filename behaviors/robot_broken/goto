@@ -1,0 +1,13 @@
++ petsay_name %R Navigation target acquired.
++ petsay_name %R Moving to location.
++ petsay_name %R Executing movement order.
++ petsay_name %R Plotting new course.
+x petsay_name %R Invalid navigation target. Cancelling.
++ petsay_name %R Moving toward target.
++ petsay_name %R Target location acquired.
+x petsay_name %R Movement order overriden by safety systems.
++ petsay_name %R Movement order confirmed.
++ petsay_name %R On the move.
+x petsay_name %R General Navigation failure.$$petcom_all stay
+x petsay_name %R Unable to comply, stopping.$$petcom_name %R stay
+x

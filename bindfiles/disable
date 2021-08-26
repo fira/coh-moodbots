@@ -1,0 +1,5 @@
+ADD "petsay_all Enabling Mood Protocol...$$bindloadfilesilent moodbots/enable"
+F "petcom_all attack"
+G "petcom_all goto"
+H "petcom_all stay"
+V "petcom_all follow"
