@@ -17,24 +17,24 @@ commandset = [
 ]
 
 # Bind files generation parameters
-bf_total = 2500                             # Amount of files (+1)
-bf_behavior_cycle = (40..80)                # Length of a behavior cycle
-bf_edgy_prob = (340..420)                   # PPM of variations in a same behavior cycle
+bf_total = 3000                             # Amount of files (+1)
+bf_behavior_cycle = (60..100)               # Length of a behavior cycle
+bf_edgy_prob = (400..500)                   # PPM of variations in a same behavior cycle
 bf_delay = 1                                # Skip at least this after inserting a variation
 
 # Behaviors: name, occurence modifier, cycle length modifier
 behaviors = [
-  [  "eager", 1.4, 0.9 ],
-  [  "eager", 1.7, 0.6 ],
-  [  "lazy",  0.8, 0.8 ],
+  [  "eager", 1.2, 0.9 ],
+  [  "eager", 1.4, 0.7 ],
+  [  "lazy",  0.7, 0.8 ],
   [  "cynic", 0.6, 0.8 ],
-  [  "robot", 1.2, 0.4 ],
+  [  "robot", 1.1, 0.4 ],
   [  "robot", 1.0, 0.6 ],
   [  "robot", 0.8, 0.8 ],
   [  "robot", 0.7, 1.0 ],
-  [ "robot_broken", 1.8, 0.3 ],
-  [ "robot_broken", 1.5, 0.4 ],
-  [ "robot_broken", 1.2, 0.6 ]
+  [ "robot_broken", 1.5, 0.3 ],
+  [ "robot_broken", 1.2, 0.4 ],
+  [ "robot_broken", 1.0, 0.5 ]
 ]
 
 
@@ -63,7 +63,7 @@ for bfi in 0..bf_total
         mood_opts[name] = []
         File.foreach("behaviors/#{mood}/#{name}") do |line|
           linecmd = []
-          # First character are special ops (+: add to default, >: follow up to previous line)
+          # First character are special ops (+: add to default, >: next line is direct follow-up)
           spl = line.split(' ')
           if /\+/ =~ spl.first
             linecmd.push(default)
