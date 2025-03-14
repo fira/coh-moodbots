@@ -6,35 +6,49 @@
 player_name = "Mekki"
 pet_names = [ "Kirby", "Vayu", "Sagi", "Henry", "Marty", "Larry" ]
 subdir = "moodbots"
-outdir = 'E:\\CoHHomecoming\\data'
+outdir = "C:/Games/Homecoming/settings/live/"
 
 # Bind data
 commandset = [
   [ 'V', 'follow', 'petcom_all follow'  ],
   [ 'G', 'goto',   'petcom_all goto'     ],
   [ 'H', 'stay',   'petcom_all stay'     ],
-  [ 'F', 'attack', 'petcom_all attack'   ]
+  [ 'F', 'attack', 'petcom_all attack'   ],
+  [ 'C', 'defensive', 'petcom_all defensive'],
+  [ 'SHIFT+C', 'aggressive', 'petcom_all aggressive'],
+  [ 'CTRL+C', 'passive', 'petcom_all passive']
+]
+
+# Random commands that WILL just SCREW YOU UP! Temporarily.
+terminal_mischief = [
+  "architect", "++autorun", "backward 1",
+  "visscale 0", "netgraph 2", "incarnate_unequip_all",
+  "info", "inspexec_slot 1", "++lookup", "++lookdown",
+  "next_tray", "powers", "powers_togglealloff", "prev_tray",
+  "title_change", "petcomname FFG dismiss"
 ]
 
 # Bind files generation parameters
-bf_total = 3000                             # Amount of files (+1)
-bf_behavior_cycle = (60..100)               # Length of a behavior cycle
+bf_total = 5000                             # Amount of files (+1)
+bf_behavior_cycle = (50..90)                # Length of a behavior cycle
 bf_edgy_prob = (400..500)                   # PPM of variations in a same behavior cycle
 bf_delay = 1                                # Skip at least this after inserting a variation
 
 # Behaviors: name, occurence modifier, cycle length modifier
 behaviors = [
-  [  "eager", 1.2, 0.9 ],
+  [  "eager", 1.2, 0.8 ],
   [  "eager", 1.4, 0.7 ],
   [  "lazy",  0.7, 0.8 ],
   [  "cynic", 0.6, 0.8 ],
   [  "robot", 1.1, 0.4 ],
   [  "robot", 1.0, 0.6 ],
   [  "robot", 0.8, 0.8 ],
-  [  "robot", 0.7, 1.0 ],
   [ "robot_broken", 1.5, 0.3 ],
   [ "robot_broken", 1.2, 0.4 ],
-  [ "robot_broken", 1.0, 0.5 ]
+  [ "robot_broken", 1.0, 0.5 ],
+  [ "robot_malf", 0.8, 0.5 ],
+  [ "rularuu", 1.0, 0.3 ],
+  [ "fanclub", 2.0, 0.5 ]
 ]
 
 
@@ -42,6 +56,7 @@ behaviors = [
 mood = nil
 mood_next = 0
 mood_opts = nil
+announce_mood = false
 cycle_prob = 0
 delay_count = 0
 context = [] # List of lines to sequentially use
@@ -50,32 +65,49 @@ sampled_names = []
 for bfi in 0..bf_total
   # Start by selecting a mood if needed
   if bfi >= mood_next
-      mood_data = behaviors.sample
-      mood = mood_data[0]
-      cycle_prob = rand(bf_edgy_prob) * mood_data[1]
-      mood_next = bfi + rand(bf_behavior_cycle) * mood_data[2]
-      context = []
+    announce_mood = true
+    mood_data = behaviors.sample
+    mood = mood_data[0]
+    cycle_prob = rand(bf_edgy_prob) * mood_data[1]
+    mood_next = bfi + rand(bf_behavior_cycle) * mood_data[2]
+    context = []
 
-      # Now read the beahvior data
-      mood_opts = Hash.new
-      command = [] # Set of sequential commands for several actions in a row
-      commandset.each do |key, name, default|
-        mood_opts[name] = []
-        File.foreach("behaviors/#{mood}/#{name}") do |line|
-          linecmd = []
-          # First character are special ops (+: add to default, >: next line is direct follow-up)
-          spl = line.split(' ')
-          if /\+/ =~ spl.first
-            linecmd.push(default)
-          end
-          linecmd.push(spl[1..].join(' '))
-          command.push(linecmd)
-          if not />/ =~ spl.first
-            mood_opts[name].push(command)
-            command = []
-          end
+    # Now read the beahvior data
+    mood_opts = Hash.new
+    announce_opts = Hash.new
+    command = [] # Set of sequential commands for several actions in a row
+    commandset.each do |key, name, default|
+      mood_opts[name] = []
+      announce_opts[name] = []
+      File.foreach("behaviors/#{mood}/#{name}") do |line|
+        linecmd = []
+        # First character are special ops (+: add to default, >: next line is direct follow-up)
+        spl = line.split(' ')
+        if /\+/ =~ spl.first
+          linecmd.push(default)
+        end
+        linecmd.push(spl[1..].join(' '))
+        command.push(linecmd)
+        if not />/ =~ spl.first
+          mood_opts[name].push(command)
+          command = []
         end
       end
+      File.foreach("behaviors/#{mood}/announce") do |line|
+        linecmd = []
+        # First character are special ops (+: add to default, >: next line is direct follow-up)
+        spl = line.split(' ')
+        if /\+/ =~ spl.first
+          linecmd.push(default)
+        end
+        linecmd.push(spl[1..].join(' '))
+        command.push(linecmd)
+        if not />/ =~ spl.first
+          announce_opts[name].push(command)
+          command = []
+        end
+      end
+    end
   end
 
   # Next generate a bind file according to mood
@@ -89,8 +121,11 @@ for bfi in 0..bf_total
   File.open("#{outdir}/#{subdir}/#{target_filename}", "w") do |fd|
     commandset.each do |key, name, default|
       cmdset = [default]
-      if rand(1000) < cycle_prob and delay_count < 1
-        if context.empty?
+      if announce_mood or (rand(1000) < cycle_prob and delay_count < 1)
+        if announce_mood
+          context = announce_opts[name].sample.clone
+          sampled_names = []
+        elsif context.empty?
           context = mood_opts[name].sample.clone
           sampled_names = []
         end
@@ -114,4 +149,6 @@ for bfi in 0..bf_total
       fd.write("#{key} \"#{cmdtext}\"\n")
     end
   end
+
+  announce_mood = false
 end
