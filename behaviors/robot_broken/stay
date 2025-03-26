@@ -10,4 +10,4 @@ x petsay_name %R Unable to comply: location unsafe.
 x petsay_name %R Location invalid, falling back to anchor point.$$petcom_name %R follow
 x petsay_name %R Generalized Navigation failure.$$petcom_all %R follow
 x petsay_name %R Error: Urgent disk defrag required. Error: no drive detected.
-x 
+x
