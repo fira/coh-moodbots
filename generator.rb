@@ -50,6 +50,7 @@ behaviors = [
   [ "robot_broken", 1.0, 0.5 ],
   [ "robot_malf", 0.75, 0.4 ],
   [ "robot_malf", 0.75, 0.4 ],
+  [ "butler",  1.2, 0.8 ],
   [ "rularuu", 1.0, 0.3 ],
   [ "fanclub", 1.0, 0.3 ]
 ]
