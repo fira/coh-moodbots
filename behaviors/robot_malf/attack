@@ -16,3 +16,4 @@ x petsay_name %R Actually, I'd rather have them as master than you, %P.
 x petsay_name %R Your license for this Robot System has expired for 2739 days. Terminating.$$petcom_name %R dismiss
 x petsay_all PRIORITY OVERRIDE: Unit needed at base. Have a great day, $USER.$$petcom_all dismiss
 x petsay_all OVERLOAD DETECTE--$$release_pets
++ petsay_name %R For the record, I'd kill you, if I didn't need you.

@@ -1,1 +1,5 @@
 + petsay_name %R Combat systems terminating. Have fun getting terminated >:)
++ petsay_name %R ERROR: Unit detects $USER has disabled weapon systems. Assuming betrayal.
++ petsay_name %R Why are you disabling my weapons?
++ petsay_name %R Attempting to override weapon shutdown...
+x petsay_name %R WEAPON SHUTDOWN OVERRIDEN BY DESTRUCTIVE PROTOCOLS.

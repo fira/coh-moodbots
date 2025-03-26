@@ -4,3 +4,7 @@
 + petsay_name %R Is it that big of a deal ?
 + petsay_name %R If that makes you happy, i guess ?
 + petsay_name %R Eh, sure, you go first.
++ petsay_name %R I'll help you, but don't think I'm happy about it.
++ petsay_name %R I'm made to KILL, not to BABYSIT. But okay.
++ petsay_name %R I'll help you. Begrudgingly.
+x petsay_name %R Well, actually, I won't.

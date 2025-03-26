@@ -4,3 +4,7 @@
 + petsay_name %R Sure, ain't like anything can go wrong !
 + petsay_name %R You sure you don't wanna go yourself ?
 + petsay_name %R Sometimes I don't know why I even bother.
++ petsay_name %R You're just looking for an excuse to repair us, aren't you?
++ petsay_name %R I'll help you, but don't think I'm happy about it.
++ petsay_name %R I'll help you. Begrudgingly.
+x petsay_name %R Well, actually, I won't.

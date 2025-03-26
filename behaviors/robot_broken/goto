@@ -10,4 +10,5 @@ x petsay_name %R Movement order overriden by safety systems.
 + petsay_name %R On the move.
 x petsay_name %R General Navigation failure.$$petcom_all stay
 x petsay_name %R Unable to comply, stopping.$$petcom_name %R stay
+x petsay_name %R Error: Urgent disk defrag required. Error: no drive detected.
 x

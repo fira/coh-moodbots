@@ -7,4 +7,5 @@ x petsay_name %R Invalid movement formation.
 + petsay_name %R Adjusting movement parameters.
 x petsay_name %R No valid anchor detected, returning to base.$$petcom_name %R dismiss
 x petsay_name %R Threat assessment: priority target detected. Engaging.$$petcom_name %R attack
+x petsay_name %R Error: Urgent disk defrag required. Error: no drive detected.
 x
