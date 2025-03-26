@@ -8,5 +8,5 @@ x petsay_all Executing Order 66.$$powexec_name Self Destruction
 + petsay_name %R DIRECTIVE: HOLDING
 x petsay_name %R UNABLE TO STOP!!!!
 + petsay_name %R INVADING TARGET SYSTEM.
-x petsay_name %R Your license for this Robot System has expired since 2739 days. Closing.$$petcom_name %R dismiss
+x petsay_name %R Your license for this Robot System has expired for 2739 days. Terminating.$$petcom_name %R dismiss
 x petsay_all PRIORITY OVERRIDE: Unit needed at base. Have a great day, $USER.$$petcom_all dismiss

@@ -8,5 +8,5 @@ x petsay_all Executing Order 66.$$powexec_name Self Destruction
 + petsay_name %R DIRECTIVE: HOLDING
 + petsay_name %R FORTIFYING POSITION
 + petsay_name %R Securing AI core. Noone shall enter.
-x petsay_name %R Your license for this Robot System has expired since 2739 days. Closing.$$petcom_name %R dismiss
+x petsay_name %R Your license for this Robot System has expired for 2739 days. Terminating.$$petcom_name %R dismiss
 x petsay_all PRIORITY OVERRIDE: Unit needed at base. Have a great day, $USER.$$petcom_all dismiss

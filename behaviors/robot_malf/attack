@@ -13,5 +13,6 @@ x petsay_name %R Actually, I'd rather have them as master than you, %P.
 + petsay_name %R They will feel our fury.
 + petsay_name %R COPY. OBLITERATING TARGET.
 + petsay_name %R WARNING! WARNING! ATMOSPHERIC LEAK DETECTED!
-x petsay_name %R Your license for this Robot System has expired since 2739 days. Closing.$$petcom_name %R dismiss
+x petsay_name %R Your license for this Robot System has expired for 2739 days. Terminating.$$petcom_name %R dismiss
 x petsay_all PRIORITY OVERRIDE: Unit needed at base. Have a great day, $USER.$$petcom_all dismiss
+x petsay_all OVERLOAD DETECTE--$$release_pets
