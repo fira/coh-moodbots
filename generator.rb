@@ -26,7 +26,7 @@ terminal_mischief = [
   "info", "inspexec_slot 1", "++lookup", "++lookdown",
   "next_tray", "powers", "powers_togglealloff", "prev_tray",
   "title_change", "petcomname FFG dismiss", "powexecname Self Destruction",
-  "petcom_all dismiss", "++disable2D"
+  "petcom_all dismiss", "++disable2D", "ah"
 ]
 
 # Bind files generation parameters
@@ -51,35 +51,7 @@ behaviors = [
   [ "robot_malf", 0.75, 0.4 ],
   [ "robot_malf", 0.75, 0.4 ],
   [ "rularuu", 1.0, 0.3 ],
-  [ "fanclub", 1.0, 0.3 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ],
-  [ "robot_malf", 0.75, 0.4 ]
+  [ "fanclub", 1.0, 0.3 ]
 ]
 
 
