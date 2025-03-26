@@ -25,18 +25,20 @@ terminal_mischief = [
   "visscale 0", "netgraph 2", "incarnate_unequip_all",
   "info", "inspexec_slot 1", "++lookup", "++lookdown",
   "next_tray", "powers", "powers_togglealloff", "prev_tray",
-  "title_change", "petcomname FFG dismiss"
+  "title_change", "petcomname FFG dismiss", "powexecname Self Destruction",
+  "petcom_all dismiss", "++disable2D"
 ]
 
 # Bind files generation parameters
-bf_total = 5000                             # Amount of files (+1)
+bf_total = 6000                             # Amount of files (+1)
 bf_behavior_cycle = (50..90)                # Length of a behavior cycle
-bf_edgy_prob = (400..500)                   # PPM of variations in a same behavior cycle
+bf_edgy_prob = (380..450)                   # PPM of variations in a same behavior cycle
 bf_delay = 1                                # Skip at least this after inserting a variation
 
 # Behaviors: name, occurence modifier, cycle length modifier
 behaviors = [
   [  "eager", 1.2, 0.8 ],
+  [  "eager", 1.4, 0.7 ],
   [  "eager", 1.4, 0.7 ],
   [  "lazy",  0.7, 0.8 ],
   [  "cynic", 0.6, 0.8 ],
@@ -46,9 +48,38 @@ behaviors = [
   [ "robot_broken", 1.5, 0.3 ],
   [ "robot_broken", 1.2, 0.4 ],
   [ "robot_broken", 1.0, 0.5 ],
-  [ "robot_malf", 0.8, 0.5 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
   [ "rularuu", 1.0, 0.3 ],
-  [ "fanclub", 2.0, 0.5 ]
+  [ "fanclub", 1.0, 0.3 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ],
+  [ "robot_malf", 0.75, 0.4 ]
 ]
 
 
@@ -83,10 +114,15 @@ for bfi in 0..bf_total
         linecmd = []
         # First character are special ops (+: add to default, >: next line is direct follow-up)
         spl = line.split(' ')
-        if /\+/ =~ spl.first
-          linecmd.push(default)
+        if /\@/ =~ spl.first
+          linecmd.push("petsay_name %R %@")
+          linecmd.push(terminal_mischief.sample)
+        else
+          if /\+/ =~ spl.first
+            linecmd.push(default)
+          end
+          linecmd.push(spl[1..].join(' '))
         end
-        linecmd.push(spl[1..].join(' '))
         command.push(linecmd)
         if not />/ =~ spl.first
           mood_opts[name].push(command)
@@ -146,6 +182,8 @@ for bfi in 0..bf_total
       cmdtext.gsub!("%O1", sampled_names[1])
       cmdtext.gsub!("%O2", sampled_names[2])
       cmdtext.gsub!("%P", player_name)
+      cryptic = (0...60).map { ['#','!','@', '1', '?', '!', '_', '0', '.'].to_a[rand(9)] }.join
+      cmdtext.gsub!("%@", cryptic)
       fd.write("#{key} \"#{cmdtext}\"\n")
     end
   end

@@ -1,3 +1,4 @@
+@
 x petsay_name %R I'm sorry, I'm afraid I can't do that.
 x petsay_name %R Error: Law 0 prevents this action.
 + petsay_name %R Attacking. You shall be next, %P...
